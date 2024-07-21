@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>File Explorer</title>
+</head>
+<body>
+<h1>File Explorer</h1>
+<input type="file" id="fileInput">
+<ul id="fileList"></ul>
+
+<script>
+const fileInput = document.getElementById('fileInput');
+const fileList = document.getElementById('fileList');
+
+fileInput.addEventListener('change', function() {
+  fileList.innerHTML = '';
+  for (let i = 0; i < fileInput.files.length; i++) {
+    const li = document.createElement('li');
+    li.textContent = fileInput.files[i].name;
+    fileList.appendChild(li);
+  }
+});
+</script>
+</body>
+</html>
